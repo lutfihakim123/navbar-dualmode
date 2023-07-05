@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>My Portfolio</title>
+</head>
+<body>
+    <!-- As a link -->
+    <nav id="navbar"  class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+            <a id="mode" class="navbar-brand" href="#"></a>
+            <div class="darkmenubutton">
+                <input id="darkmode-toggle" onclick="changeMode()" type="checkbox" />
+                <label for="darkmode-toggle"></label>
+            </div>
+        </div>
+
+    </nav>
+</body>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script>
+    function changeMode() {
+        var btnChangeMode = document.getElementById("darkmode-toggle");
+        if (btnChangeMode.checked == true) {
+            localStorage.setItem("mode", "darkmode");
+            document.getElementById("mode").innerHTML = "Dark Mode";
+            document.getElementById("navbar").className = "navbar navbar-dark bg-dark";
+            document.getElementById("darkmode-toggle").checked = true;
+            console.log(localStorage.getItem("mode"));
+        } else {
+            localStorage.setItem("mode", "lightmode");
+            document.getElementById("mode").innerHTML = "Light Mode";
+            document.getElementById("navbar").className = "navbar navbar-light bg-light";
+            console.log(localStorage.getItem("mode"));
+        }
+    }
+    if (localStorage.getItem("mode") == "darkmode") {
+        document.getElementById("mode").innerHTML = "Dark Mode";
+        document.getElementById("navbar").className = "navbar navbar-dark bg-dark";
+        document.getElementById("darkmode-toggle").checked = true;
+    } else {
+        document.getElementById("mode").innerHTML = "Light Mode";
+        document.getElementById("navbar").className = "navbar navbar-light bg-light";
+    }
+    console.log(localStorage.getItem("mode"));
+</script>
+</html>
